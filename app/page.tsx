@@ -7,7 +7,7 @@ import UrlInput from "@/components/url-input"
 export default function Home() {
   return (
     <>
-      <section className="w-[90%] mx-auto mt-20 md:max-w-4xl">
+      <section className="w-[90%] mx-auto mt-20 md:max-w-5xl">
         <header>
           <motion.h1
             initial={{ opacity: 0 }}

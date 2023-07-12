@@ -1,17 +1,16 @@
 "use client"
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import { Input } from "./ui/input"
 import { Button } from "./ui/button"
 import { CornerDownLeft } from "lucide-react"
 
 import { motion } from "framer-motion"
+import { useUrlStore } from "@/store/url"
 
 function UrlInput() {
   const [url, setUrl] = useState("")
   const [loading, setLoading] = useState(false)
-
-  const router = useRouter()
+  const { addUrl } = useUrlStore()
 
   const handleSubmit = async () => {
     if (!url) return
@@ -47,7 +46,8 @@ function UrlInput() {
     setUrl("")
     setLoading(false)
 
-    router.refresh()
+    // add to store
+    addUrl(savedUrl)
   }
 
   return (
