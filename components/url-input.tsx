@@ -10,10 +10,21 @@ import { useUrlStore } from "@/store/url"
 function UrlInput() {
   const [url, setUrl] = useState("")
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
   const { addUrl } = useUrlStore()
 
   const handleSubmit = async () => {
+    setError("")
     if (!url) return
+
+    // validate url
+    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/
+
+    if (!urlRegex.test(url)) {
+      setError("Enter a valid url")
+      return
+    }
 
     setLoading(true)
 
@@ -58,11 +69,12 @@ function UrlInput() {
       className="relative mx-auto my-12 md:w-1/2"
     >
       <Input
-        placeholder="Enter your url"
+        placeholder="Enter your url (https://example.com)"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
         onKeyUp={(e) => e.key === "Enter" && handleSubmit()}
         disabled={loading}
+        className="pr-12"
       />
 
       <Button
@@ -73,6 +85,8 @@ function UrlInput() {
       >
         <CornerDownLeft size={14} />
       </Button>
+
+      {error && <p className="mt-2 text-xs italic text-red-500">{error}</p>}
     </motion.article>
   )
 }

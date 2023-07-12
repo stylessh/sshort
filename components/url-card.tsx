@@ -37,18 +37,21 @@ function UrlCard({ url }: UrlCardProps) {
   return (
     <li
       key={url.id}
-      className="relative flex gap-2 px-4 py-3 transition-all bg-white border rounded-md hover:border-black group"
+      className="relative grid grid-cols-[1fr,2em] gap-4 px-4 py-3 transition-all bg-white border rounded-md hover:border-black group"
     >
-      <div className="flex-1">
+      <div className="w-full">
         <a
           href={`${host}/${url.id}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm transition-all hover:underline"
+          className="text-sm transition-all hover:underline line-clamp-1"
         >
           {host}/{url.id}
         </a>
-        <p className="mt-2 text-xs text-gray-500">{url.url}</p>
+
+        <p className="w-full mt-2 text-xs text-gray-500 break-all line-clamp-1">
+          {url.url}
+        </p>
       </div>
 
       <div className="flex flex-col gap-1">
