@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "precommit": "pnpm lint && pnpm format:write",
     "lint": "next lint",
     "format:write": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx}\"",
     "format:check": "prettier \"**/*.{css,js,json,jsx,ts,tsx}\""
