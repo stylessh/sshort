@@ -1,5 +1,7 @@
 ## sshort - a simple URL shortener
 
+Testing duplicate-pr. #1
+
 Url shortener built with Next, Tailwind, Upstash Redis and Vercel.
 
 <!-- demo image -->
