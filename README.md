@@ -8,7 +8,7 @@ Url shortener built with Next, Tailwind, Upstash Redis and Vercel.
 > No analytics, no tracking, no cookies, no ads, no bullshit. Just shortening.
 
 ### Features
-The urls stores in a Redis database. And yours are in Local Storage. This makes the app blazing fast.
+The urls stores in a Redis database. And yours are in Local Storage. This makes the app blazingly fast.
 
 
 ### Development
